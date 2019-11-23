@@ -40,30 +40,38 @@ class ViewController: UIViewController {
             labelResult.text = "Please enter a phrase that is no more than 255 characters"
             return
         }
+        
         // 2. PROCCES
         print (phraseInput)
         
         // Create varibales
-        var Happy = 0
+        var happy = 0
         var sad = 0
-    }
-    
-    for singleCharcter in phraseInput { 
-    
-    switch single character {
-    case "😃" ,"😊","🙂", "😄":
-    emotion += 1
-    case  "☹", "🙁", "😕", "😔":
-    default
-    outputResault.text = "None"
-    
-    }
-    if singleCharcter > 0 {
-    outputResult.text = "happy"
-    } if singleCharcter > 0
-    outputResult.text = "sad"
-    if singleCharcter == 0 {
-    outputResult = "none"
-    }
-}
+        
+        // Counting how many happy or sad emojis there are in the text
+        for character in phraseInput {
+            
+            switch character {
+            case "😃" ,"😊","🙂", "😄":
+                happy += 1
+            case "☹", "🙁", "😕", "😔":
+                sad += 1
+            default:
+                break
+            }
+            
+            
+        }
+        
+        // 3. OUTPUT
+        // Decide the mood of the message
+        if happy > sad  {
+            labelResult.text = "happy"
+        } else if sad > happy {
+            labelResult.text = "sad"
+        }  else {
+            labelResult.text = "unsure"
+        
+            }
+        }
 }
